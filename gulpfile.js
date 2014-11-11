@@ -27,7 +27,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function () {
-    gulp.src('./app/scripts/*.js')
+    gulp.src('./app/scripts/**/*.js')
         .pipe(plugins.uglify())
         .pipe(gulp.dest('./dist/scripts/'));
 });
@@ -36,7 +36,7 @@ gulp.task('browser-sync', function() {
     var files = [
         'dist/**/*.html',
         'dist/styles/*.css',
-        'dist/scripts/*.js'
+        'dist/scripts/**/*.js'
     ];
     browserSync.init(files, {
         server: {
@@ -47,8 +47,8 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function(){
     gulp.watch('./app/**/*.slim', ['slim']);
-    gulp.watch('./app/styles/*.scss', ['sass']);
-    gulp.watch('./app/scripts/*.js', ['js']);
+    gulp.watch('./app/styles/**/*.scss', ['sass']);
+    gulp.watch('./app/scripts/**/*.js', ['js']);
 });
 
 gulp.task('default', ['watch', 'browser-sync', 'copy-bower-components']);
