@@ -5,6 +5,9 @@ angular.module('App', [
     'ngAnimate',
     'ngResource'
 ])
+.run(['$rootScope', function($rootScope){
+    $rootScope.name = "Arturo";
+}])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/welcome");
     $stateProvider

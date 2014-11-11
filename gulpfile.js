@@ -11,7 +11,7 @@ gulp.task('slim', function(){
     gulp.src("./app/**/*.slim")
         .pipe(plugins.slim({
             pretty: true,
-            options: "encoding='utf-8'"
+            options: ["attr_delims={'(' => ')', '[' => ']'}", "encoding='utf-8'"]
         }))
         .pipe(gulp.dest('./dist'));
 });
