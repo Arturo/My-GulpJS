@@ -2,6 +2,11 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     browserSync = require('browser-sync');
 
+gulp.task('copy-bower-components', function () {
+    gulp.src('./app/bower_components/**')
+        .pipe(gulp.dest('dist/bower_components'));
+});
+
 gulp.task('slim', function(){
     gulp.src("./app/**/*.slim")
         .pipe(plugins.slim({
@@ -46,4 +51,4 @@ gulp.task('watch', function(){
     gulp.watch('./app/scripts/*.js', ['js']);
 });
 
-gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('default', ['watch', 'browser-sync', 'copy-bower-components']);
