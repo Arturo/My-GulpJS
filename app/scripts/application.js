@@ -10,7 +10,7 @@ angular.module('App', [
     $stateProvider
         .state('welcome', {
             url: '/',
-            templateUrl: 'templates/welcome.html',
+            templateUrl: './templates/welcome.html',
             controller: 'MainCtrl'
         })
 }]);
