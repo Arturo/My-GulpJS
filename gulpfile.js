@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+    var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     path = {
@@ -84,7 +84,7 @@ gulp.task('usemin', function(){
                 plugins.rev()
             ]
         }))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', ['watch', 'browser-sync']);
