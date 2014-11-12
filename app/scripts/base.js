@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('App', [
     'ui.router',
     'ngAnimate',
@@ -9,11 +7,11 @@ angular.module('App', [
     $rootScope.name = "Arturo";
 }])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/welcome");
+    // $urlRouterProvider.otherwise("/welcome");
     $stateProvider
         .state('welcome', {
-            url: '/',
+            url: '',
             templateUrl: './templates/welcome.html',
             controller: 'MainCtrl'
-        })
+        });
 }]);

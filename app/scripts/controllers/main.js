@@ -1,4 +1,3 @@
-angular.module('App')
-    .controller('MainCtrl', ['$scope', function ($scope) {
-
+angular.module("App")
+    .controller("MainCtrl",["$scope",function(){
     }]);

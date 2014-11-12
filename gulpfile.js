@@ -1,54 +1,90 @@
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
-    browserSync = require('browser-sync');
-
-gulp.task('copy-bower-components', function () {
-    gulp.src('./app/bower_components/**')
-        .pipe(gulp.dest('dist/bower_components'));
-});
+    browserSync = require('browser-sync'),
+    path = {
+        root: './app',
+        templates: './app/templates',
+        scripts: './app/scripts',
+        styles: './app/styles'
+    };
 
 gulp.task('slim', function(){
-    gulp.src("./app/**/*.slim")
+    gulp.src(path.templates + '/slim/*.slim')
         .pipe(plugins.slim({
             pretty: true,
             options: ["attr_delims={'(' => ')', '[' => ']'}", "encoding='utf-8'"]
         }))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest(path.templates));
+});
+
+gulp.task('slim-index', function(){
+    gulp.src(path.root + '/index.slim')
+        .pipe(plugins.slim({
+            pretty: true,
+            options: ["attr_delims={'(' => ')', '[' => ']'}", "encoding='utf-8'"]
+        }))
+        .pipe(gulp.dest(path.root));
 });
 
 gulp.task('sass', function () {
-    gulp.src('./app/styles/**/*.scss')
+    gulp.src(path.styles + '/sass/*.scss')
         .pipe(plugins.autoprefixer())
         .pipe(plugins.sass({
             errLogToConsole: true,
             sourceComments : 'normal'
         }))
-        .pipe(gulp.dest('./dist/styles/'));
+        .pipe(gulp.dest(path.styles));
 });
 
-gulp.task('js', function () {
-    gulp.src('./app/scripts/**/*.js')
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest('./dist/scripts/'));
+gulp.task('coffee', function () {
+    gulp.src(path.scripts + '/coffee/*.coffee')
+        .pipe(plugins.coffee())
+        .pipe(gulp.dest(path.scripts));
+});
+
+gulp.task("lint", function() {
+    gulp.src(path.scripts + '/**/*.js')
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter("default"));
 });
 
 gulp.task('browser-sync', function() {
     var files = [
-        'dist/**/*.html',
-        'dist/styles/*.css',
-        'dist/scripts/**/*.js'
+        path.root + '/index.html',
+        path.templates + '/*.html',
+        path.styles + '/*.css',
+        path.scripts + '/**/*.js'
     ];
     browserSync.init(files, {
         server: {
-            baseDir: "./dist"
+            baseDir: path.root
         }
     });
 });
 
 gulp.task('watch', function(){
-    gulp.watch('./app/**/*.slim', ['slim']);
-    gulp.watch('./app/styles/**/*.scss', ['sass']);
-    gulp.watch('./app/scripts/**/*.js', ['js']);
+    gulp.watch(path.root + '/index.slim', ['slim-index']);
+    gulp.watch(path.templates + '/slim/*.slim', ['slim']);
+    gulp.watch(path.styles + '/sass/*.scss', ['sass']);
+    gulp.watch(path.scripts + '/**/*.js', ["lint"]);
+    // gulp.watch(path.scripts + '/coffee/*.coffee', ['coffee']);
 });
 
-gulp.task('default', ['watch', 'browser-sync', 'copy-bower-components']);
+gulp.task('usemin', function(){
+    gulp.src(path.root + '/*.html')
+        .pipe(plugins.usemin({
+            css: [
+                plugins.minifyCss(),
+                'concat',
+                plugins.rev()
+            ],
+            // html: [minifyHtml({empty: true})],
+            js: [
+                plugins.uglify(),
+                plugins.rev()
+            ]
+        }))
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('default', ['watch', 'browser-sync']);
