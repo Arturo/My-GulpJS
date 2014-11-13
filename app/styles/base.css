@@ -1,7 +1,7 @@
-/* line 1, /Users/arturjanicki/Projects/client/app/styles/sass/base.scss */
+/* line 1, /Users/arturjanicki/Projects/client/app/styles/sass/includes/nav */
+h4 {
+  background-color: yellow; }
+
+/* line 3, /Users/arturjanicki/Projects/client/app/styles/sass/base.scss */
 h3 {
   background-color: red; }
-
-/* line 4, /Users/arturjanicki/Projects/client/app/styles/sass/base.scss */
-h4 {
-  background-color: green; }

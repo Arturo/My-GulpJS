@@ -1,4 +1,4 @@
-    var gulp = require('gulp'),
+var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     path = {
