@@ -27,7 +27,7 @@ gulp.task('slim-index', function(){
 });
 
 gulp.task('sass', function () {
-    gulp.src(path.styles + '/sass/*.scss')
+    gulp.src(path.styles + '/sass/**/*.scss')
         .pipe(plugins.autoprefixer())
         .pipe(plugins.sass({
             errLogToConsole: true,
@@ -65,7 +65,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function(){
     gulp.watch(path.root + '/index.slim', ['slim-index']);
     gulp.watch(path.templates + '/slim/*.slim', ['slim']);
-    gulp.watch(path.styles + '/sass/*.scss', ['sass']);
+    gulp.watch(path.styles + '/sass/**/*.scss', ['sass']);
     gulp.watch(path.scripts + '/**/*.js', ["lint"]);
     // gulp.watch(path.scripts + '/coffee/*.coffee', ['coffee']);
 });
