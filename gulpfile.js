@@ -1,4 +1,6 @@
+// Move to paths file
 var gulp = require('gulp'),
+    paths = require('./paths'),
     plugins = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     path = {
@@ -85,6 +87,15 @@ gulp.task('usemin', function(){
             ]
         }))
         .pipe(gulp.dest('./dist'));
+});
+
+
+gulp.task('test', function() {
+    return gulp.src(paths.karma)
+        .pipe(plugins.karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }));
 });
 
 gulp.task('default', ['watch', 'browser-sync']);
