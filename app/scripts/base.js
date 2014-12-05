@@ -7,11 +7,11 @@ angular.module('App', [
     $rootScope.name = "Arturo";
 }])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    // $urlRouterProvider.otherwise("/welcome");
+    $urlRouterProvider.otherwise("/");
     $stateProvider
-        .state('welcome', {
-            url: '',
-            templateUrl: './templates/welcome.html',
+        .state('home', {
+            url: '/',
+            templateUrl: './templates/home.html',
             controller: 'MainCtrl'
         });
 }]);
