@@ -5,7 +5,7 @@ describe("Unit: Testing Modules", function(){
         var module;
 
         before(function(){
-            module = angular.module('App');
+            module = angular.module.mock('App');
         });
 
         it("should be registered", function() {
