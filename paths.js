@@ -1,6 +1,6 @@
 var app = ['app/scripts/**/*.js'],
-    unit = ['test/unit/**/*.js'],
-    e2e = ['test/e2e/**/*.js'],
+    unit = ['test/unit/**/*_spec.js'],
+    e2e = ['test/e2e/**/*_spec.js'],
     lib = [
         'node_modules/chai/chai.js',
         //Override jasmine expect
