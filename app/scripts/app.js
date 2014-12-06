@@ -2,7 +2,8 @@ angular.module('App', [
     'ui.router',
     'ui.bootstrap',
     'ngAnimate',
-    'ngResource'
+    'ngResource',
+    'ngCookies'
 ])
 .run(['$rootScope', function($rootScope){
     $rootScope.name = "Arturo";

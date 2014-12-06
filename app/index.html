@@ -9,15 +9,84 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="bower_components/animate.css/animate.css" rel="stylesheet" />
     <link href="bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="bower_components/rdash-ui/dist/css/rdash.css" rel="stylesheet" />
     <link href="styles/base.css" rel="stylesheet" />
     <!--endbuild-->
   </head>
   <body>
     <main ng-controller="MainCtrl">
-      <h3>
-        {{ name }}
-      </h3>
-      <h4 ui-view=""></h4>
+      <div class="open" id="page-wrapper" ng-class="{&#39;open&#39;: toggle}" ng-cloak="">
+        <div id="sidebar-wrapper">
+          <ul class="sidebar">
+            <li class="sidebar-main">
+              <a ng-click="toggleSidebar()">Dashboard<span class="menu-icon glyphicon glyphicon-transfer"></span></a>
+            </li>
+            <li class="sidebar-title">
+              <span>NAVIGATION</span>
+            </li>
+            <li class="sidebar-list">
+              <a href="#">Home<span class="menu-icon fa fa-tachometer"></span></a>
+            </li>
+            <li class="sidebar-list">
+              <a href="#/models">Models<span class="menu-icon fa fa-table"></span></a>
+            </li>
+          </ul>
+          <div class="sidebar-footer">
+            <div class="col-xs-4">
+              <a href="#" target="_blank">Team</a>
+            </div>
+            <div class="col-xs-4">
+              <a href="#" target="_blank">About</a>
+            </div>
+            <div class="col-xs-4">
+              <a href="#" target="_blank">Support</a>
+            </div>
+          </div>
+        </div>
+        <div id="content-wrapper">
+          <div class="page-content">
+            <div class="row header">
+              <div class="col-xs-12">
+                <div class="user pull-right">
+                  <div class="item dropdown">
+                    <a class="dropdown-toggle" href="#"><img src="images/avatar.jpg" /></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="dropdown-header">
+                        Joe Bloggs
+                      </li>
+                      <li class="divider"></li>
+                      <li class="link">
+                        <a href="#">Profile</a>
+                      </li>
+                      <li class="link">
+                        <a href="#">Menu Item</a>
+                      </li>
+                      <li class="link">
+                        <a href="#">Menu Item</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="link">
+                        <a href="#">Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="meta">
+                  <div class="page">
+                    Dashboard
+                  </div>
+                  <div class="breadcrumb-links">
+                    Home / Dashboard
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12" ui-view=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main><!--build:js scripts/application.min.js-->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -26,6 +95,7 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services.js"></script>
     <script src="scripts/controllers/main.js"></script>

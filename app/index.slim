@@ -9,12 +9,64 @@ html ng-app="App"
     link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"
     link rel="stylesheet" href="bower_components/animate.css/animate.css"
     link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"
+    link rel="stylesheet" href="bower_components/rdash-ui/dist/css/rdash.css"
     link rel='stylesheet' href='styles/base.css'
     /! endbuild
   body
     main ng-controller='MainCtrl'
-      h3 {{ name }}
-      h4(ui-view)
+      #page-wrapper.open ng-class="{'open': toggle}" ng-cloak=''
+        / Sidebar
+        #sidebar-wrapper
+          ul.sidebar
+            li.sidebar-main
+              a ng-click="toggleSidebar()"
+                | Dashboard
+                span.menu-icon.glyphicon.glyphicon-transfer
+            li.sidebar-title: span NAVIGATION
+            li.sidebar-list
+              a href="#"
+                | Home
+                span.menu-icon.fa.fa-tachometer
+            li.sidebar-list
+              a href="#/models"
+                | Models
+                span.menu-icon.fa.fa-table
+
+          .sidebar-footer
+            .col-xs-4: a href="#" target="_blank" Team
+            .col-xs-4: a href="#" target="_blank" About
+            .col-xs-4: a href="#" target="_blank" Support
+        / End Sidebar
+
+        #content-wrapper
+          .page-content
+            / Header Bar
+            .row.header
+              .col-xs-12
+                .user.pull-right
+                  .item.dropdown
+                    a.dropdown-toggle href="#"
+                      img src="images/avatar.jpg"
+                    ul.dropdown-menu.dropdown-menu-right
+                      li.dropdown-header Joe Bloggs
+                      li.divider
+                      li.link: a href="#" Profile
+                      li.link: a href="#" Menu Item
+                      li.link: a href="#" Menu Item
+                      li.divider
+                      li.link: a href="#" Logout
+                .meta
+                  .page Dashboard
+                  .breadcrumb-links Home / Dashboard
+            / End Header Bar
+
+            / Main Content
+            .row
+              .col-lg-12(ui-view)
+
+          / End Page Content
+        / End Content Wrapper
+      / End Page Wrapper
 
     /! build:js scripts/application.min.js
     script src='bower_components/jquery/dist/jquery.js'
@@ -24,6 +76,7 @@ html ng-app="App"
     script src='bower_components/angular-resource/angular-resource.js'
     script src='bower_components/bootstrap/dist/js/bootstrap.js'
     script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
+    script src='bower_components/angular-cookies/angular-cookies.js'
     script src='scripts/app.js'
     script src='scripts/services.js'
     script src='scripts/controllers/main.js'
