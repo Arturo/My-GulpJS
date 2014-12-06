@@ -1,5 +1,6 @@
 angular.module('App', [
     'ui.router',
+    'ui.bootstrap',
     'ngAnimate',
     'ngResource'
 ])
