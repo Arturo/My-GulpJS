@@ -7,7 +7,6 @@
     <!--build:css styles/appication.min.css-->
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="bower_components/animate.css/animate.css" rel="stylesheet" />
     <link href="bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="bower_components/rdash-ui/dist/css/rdash.css" rel="stylesheet" />
     <link href="styles/base.css" rel="stylesheet" />
@@ -25,10 +24,10 @@
               <span>NAVIGATION</span>
             </li>
             <li class="sidebar-list">
-              <a href="#">Home<span class="menu-icon fa fa-tachometer"></span></a>
+              <a ui-sref="home">Home<span class="menu-icon fa fa-tachometer"></span></a>
             </li>
             <li class="sidebar-list">
-              <a href="#/models">Models<span class="menu-icon fa fa-table"></span></a>
+              <a ui-sref="models">Models<span class="menu-icon fa fa-table"></span></a>
             </li>
           </ul>
           <div class="sidebar-footer">
@@ -96,9 +95,11 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="scripts/modules/model.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/models.js"></script>
     <script src="scripts/filters.js"></script>
     <!--endbuild-->
   </body>

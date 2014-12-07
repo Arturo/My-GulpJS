@@ -1,4 +1,6 @@
-var app = ['app/scripts/**/*.js'],
+var app = [
+        'app/scripts/**/*.js'
+    ],
     unit = ['test/unit/**/*_spec.js'],
     e2e = ['test/e2e/**/*_spec.js'],
     lib = [
@@ -12,6 +14,9 @@ var app = ['app/scripts/**/*.js'],
         "app/bower_components/angular/angular.js",
         "app/bower_components/angular-mocks/angular-mocks.js",
         "app/bower_components/angular-resource/angular-resource.js",
+        'app/bower_components/bootstrap/dist/js/bootstrap.js',
+        'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+        'app/bower_components/angular-cookies/angular-cookies.js',
         "app/bower_components/angular-ui-router/release/angular-ui-router.js",
         "app/bower_components/angular-animate/angular-animate.js"
     ];

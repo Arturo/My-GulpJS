@@ -5,12 +5,26 @@ describe("Unit: Testing Modules", function(){
         var module;
 
         before(function(){
-            module = angular.module.mock('App');
+            module = angular.module('App');
         });
 
         it("should be registered", function() {
-            // expect(module).not.toBe(null); jasmine
             expect(module).not.to.equal(null);
+        });
+
+        describe("Dependencies: ", function(){
+            var deps,
+                hasModule = function(m) {
+                return deps.indexOf(m);
+            };
+
+            before(function(){
+                deps = module.value('appName').requires;
+            });
+
+            it("should have myModels as a dependency", function() {
+                expect(hasModule('myModels')).to.not.equal(-1);
+            });
         });
     });
 });
