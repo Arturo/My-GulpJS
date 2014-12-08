@@ -1,34 +1,49 @@
-Models with UI-Grid
-<p ui-grid="gridOptions" ui-grid-exporter="" ui-grid-selection=""></p>
-<hr />
-<p>
-  Model with Bindonce - only resolves 1 watcher for the entire loop
-</p>
-<div class="table-responsive">
-  <table class="table table-condensed">
-    <thead>
-      <tr>
-        <td>
-          Id
-        </td>
-        <td>
-          Commercial Code
-        </td>
-        <td>
-          Brand
-        </td>
-        <td>
-          Category
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr bindonce="" ng-repeat="model in models">
-        <td bo-text="model.id"></td>
-        <td bo-text="model.commercial_code"></td>
-        <td bo-text="model.brand.name"></td>
-        <td bo-text="model.category.fullname"></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-lg-6">
+    Models with UI-Grid
+    <p ui-grid="gridOptions" ui-grid-exporter="" ui-grid-selection=""></p>
+  </div>
+  <div class="col-lg-6">
+    <p>
+      Model with Bindonce - only resolves 1 watcher for the entire loop
+    </p>
+    <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <td>
+              Commercial Code
+            </td>
+            <td>
+              Brand
+            </td>
+            <td>
+              Category
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr bindonce="" ng-repeat="model in models">
+            <td bo-text="model.commercial_code"></td>
+            <td bo-text="model.brand.name"></td>
+            <td bo-text="model.category.fullname"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <p>
+      Model with Bindonce as Directive
+    </p>
+    <div class="my-table-models-list" my-collection="models"></div>
+  </div>
+  <div class="col-lg-6">
+    <p>
+      Model with React
+    </p>
+    <div class="my-react-models-list table-responsive" data="models"></div>
+  </div>
 </div>

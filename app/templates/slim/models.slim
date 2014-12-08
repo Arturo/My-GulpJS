@@ -1,18 +1,25 @@
-| Models with UI-Grid
-p ui-grid="gridOptions" ui-grid-selection='' ui-grid-exporter=''
-hr
-p Model with Bindonce - only resolves 1 watcher for the entire loop
-.table-responsive
-  table.table.table-condensed
-    thead
-      tr
-        td Id
-        td Commercial Code
-        td Brand
-        td Category
-    tbody
-      tr bindonce='' ng-repeat="model in models"
-        td bo-text="model.id"
-        td bo-text="model.commercial_code"
-        td bo-text="model.brand.name"
-        td bo-text="model.category.fullname"
+.row
+  .col-lg-6
+    | Models with UI-Grid
+    p ui-grid="gridOptions" ui-grid-selection='' ui-grid-exporter=''
+  .col-lg-6
+    p Model with Bindonce - only resolves 1 watcher for the entire loop
+    .table-responsive
+      table.table.table-condensed
+        thead
+          tr
+            td Commercial Code
+            td Brand
+            td Category
+        tbody
+          tr bindonce='' ng-repeat="model in models"
+            td bo-text="model.commercial_code"
+            td bo-text="model.brand.name"
+            td bo-text="model.category.fullname"
+.row
+  .col-lg-6
+    p Model with Bindonce as Directive
+    .my-table-models-list my-collection="models"
+  .col-lg-6
+    p Model with React
+    .my-react-models-list.table-responsive data="models"

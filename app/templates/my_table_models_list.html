@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <td>
+          myCommercialCode
+        </td>
+        <td>
+          myBrand
+        </td>
+        <td>
+          myCategory
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr bindonce="" ng-repeat="model in myCollection">
+        <td bo-text="model.commercial_code"></td>
+        <td bo-text="model.brand.name"></td>
+        <td bo-text="model.category.fullname"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
