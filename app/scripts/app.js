@@ -4,6 +4,10 @@ angular.module('App', [
     'ngAnimate',
     'ngResource',
     'ngCookies',
+    'ui.grid',
+    'ui.grid.resizeColumns',
+    'ui.grid.selection',
+    'pasvaz.bindonce',
     'myModels'
 ]);
 

@@ -25,7 +25,7 @@
 
             this.index = function(params){
                 var url = myModelService.getUrl();
-                return $http.get(url + "queries/models.json");
+                return $http.get(url + "queries/models", { params: { limit: 10 }});
             };
 
             return {
