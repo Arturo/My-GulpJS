@@ -8,6 +8,7 @@ angular.module('App', [
     'ui.grid.resizeColumns',
     'ui.grid.selection',
     'pasvaz.bindonce',
+    'react',
     'myModels'
 ]);
 

@@ -5,7 +5,7 @@ var app = [
     e2e = ['test/e2e/**/*_spec.js'],
     lib = [
         'node_modules/chai/chai.js',
-        //Override jasmine expect
+        'test/lib/chai-assert.js',
         'test/lib/chai-expect.js',
         'test/lib/chai-should.js'
     ],

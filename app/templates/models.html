@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-6">
     Models with UI-Grid
-    <p ui-grid="gridOptions" ui-grid-exporter="" ui-grid-selection=""></p>
+    <p ui-grid="gridOptions"></p>
   </div>
   <div class="col-lg-6">
     <p>
@@ -42,8 +42,16 @@
   </div>
   <div class="col-lg-6">
     <p>
-      Models with React
+      Models with React Factory
     </p>
-    <div class="my-react-models-list table-responsive" data="models"></div>
+    <my-react-models-list collection="models" ng-if="models"></my-react-models-list>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <p>
+      Models with React Component
+    </p>
+    <react-component name="MyReactModelsList2" ng-if="models" props="collection"></react-component>
   </div>
 </div>
